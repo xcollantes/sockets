@@ -6,6 +6,7 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 65432
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+    # SO_REUSEADDR for not getting error "Address already in use"
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind((SERVER_HOST, SERVER_PORT))
 
